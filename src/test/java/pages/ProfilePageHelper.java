@@ -10,7 +10,8 @@ import org.openqa.selenium.support.FindBy;
 public class ProfilePageHelper extends PageBase {
     @FindBy(xpath = "//span[contains(text(),'Cancel')]")
     WebElement cancelButton;
-    @FindBy(xpath = "//mat-icon[@mattooltip='Menu']")
+    @FindBy(xpath = "//mat-icon[@class='but mat-icon material-icons']")
+   //@FindBy(xpath = "//mat-icon[@mattooltip='Menu']")
     WebElement iconButton;
     @FindBy(xpath = "//h1[@class='classCentr']")
     WebElement header;
@@ -35,5 +36,9 @@ public class ProfilePageHelper extends PageBase {
 
     public String getHeader() {
         return header.getText();
+    }
+
+    public String getIconButton() {
+        return iconButton.getText();
     }
 }

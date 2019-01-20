@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  * Created by Inka on 26-Dec-18.
  */
 public class LoginPageHelper extends PageBase {
-    @FindBy(xpath = "//span[contains(text(),'Cancel')]" )
+    @FindBy(xpath = "//span[contains(text(),'Cancel')]")
     WebElement cancelButton;
     @FindBy(xpath = "//input[@formcontrolname='email']")
     WebElement emailField;
@@ -19,7 +19,9 @@ public class LoginPageHelper extends PageBase {
     @FindBy(xpath =
             "//div[@class='alert alert-danger ng-star-inserted']")
     WebElement alertText;
-
+    @FindBy(xpath =
+            "//div[@class='ng-tns-c13-20 ng-trigger ng-trigger-transitionMessages ng-star-inserted']")
+    WebElement alertTextEm;
 
 
     public LoginPageHelper(WebDriver driver) {
@@ -35,25 +37,33 @@ public class LoginPageHelper extends PageBase {
 
     public LoginPageHelper enterValueToFieldEmail(String value) {
 
-        setValueToField(emailField,value);
+        setValueToField(emailField, value);
         return this;
     }
 
     public LoginPageHelper enterValueToFieldPassword(String value) {
-        setValueToField(passwordField,value);
+        setValueToField(passwordField, value);
         return this;
     }
 
-    public LoginPageHelper pressLogInButton() {
+    public void pressLogInButton() {
         waitUntilElementIsLoaded(driver, loginButton, 20);
         loginButton.click();
-        return this;
+
+    }
+    public void pressCancelButton() {
+        waitUntilElementIsLoaded(driver, cancelButton, 20);
+        cancelButton.click();
     }
 
     public String getAlertText() {
-        waitUntilElementIsLoaded(driver, alertText,20);
+        waitUntilElementIsLoaded(driver, alertText, 20);
         return alertText.getText();
 
     }
 
-       }
+    public String getAlertTextEm() {
+        waitUntilElementIsLoaded(driver, alertTextEm, 40);
+        return alertTextEm.getText();
+    }
+}

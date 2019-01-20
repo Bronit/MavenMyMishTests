@@ -23,7 +23,7 @@ public class EventsAuthPageHelper extends PageBase {
     public void waitUntilPageLoad() {
         waitUntilElementIsLoaded(driver,
                 menuButton,
-                20);
+                40);
         waitUntilElementIsLoaded(driver,
                 filterButton,30);
     }
@@ -41,7 +41,15 @@ public class EventsAuthPageHelper extends PageBase {
         return titlePage.getText();
     }
 
-    public void menuButtonClick() {
+   /* public void menuButtonClick() {
         menuButton.click();
     }
+}*/
+    public void menuButtonClick() {
+        menuButton.click();
+
+    }
 }
+   /* public MenuPageHelper pressLogOutButton(){
+        logOutButton.click();
+        return this;*/

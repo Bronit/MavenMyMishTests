@@ -19,8 +19,8 @@ public class MenuPageHelper extends PageBase {
         return this;
     }
 
-    public MenuPageHelper pressLogOutButton(){
+    public void pressLogOutButton(){
         logOutButton.click();
-        return this;
+
     }
 }
